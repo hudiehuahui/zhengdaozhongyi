@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Module">
+	<resultMap id="result" type="Module">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="number" column="number" />
+		<result property="descb" column="descb" />
+		<result property="createDate" column="createDate" />
+		<result property="updateDate" column="updateDate" />
+	</resultMap>
+	<insert id="insertModule" keyProperty="id" parameterType="com.zdzy.timephd.system.model.Module">
+		insert into m_module
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,			
+			</if>
+			<if test="name != null">
+				name,			
+			</if>
+			<if test="number != null">
+				number,			
+			</if>
+			<if test="descb != null">
+				descb,			
+			</if>
+			<if test="createDate != null">
+				createDate,			
+			</if>
+			<if test="updateDate != null">
+				updateDate		
+			</if>
+		</trim>	
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},			
+			</if>
+			<if test="name != null">
+				#{name},			
+			</if>
+			<if test="number != null">
+				#{number},			
+			</if>
+			<if test="descb != null">
+				#{descb},			
+			</if>
+			<if test="createDate != null">
+				#{createDate},			
+			</if>
+			<if test="updateDate != null">
+				#{updateDate}			
+			</if>
+		</trim>	
+	</insert>
+
+	<update id="updateModule" parameterType="com.zdzy.timephd.system.model.Module">
+		update m_module
+		<set>
+			<if test="name != null">
+				name = #{name},		
+			</if>
+			<if test="number != null">
+				number = #{number},		
+			</if>
+			<if test="descb != null">
+				descb = #{descb},		
+			</if>
+			<if test="createDate != null">
+				createDate = #{createDate},		
+			</if>
+			<if test="updateDate != null">
+				updateDate = #{updateDate}		
+			</if>
+		</set>
+			where id=#{id}
+	</update>
+	<delete id="deleteModule">
+		delete from m_module where id=#{id}
+	</delete>
+
+	<select id="selectModule" resultMap="result">
+		select * from m_module where id=#{id}
+    </select>
+    
+    <select id="queryModule" resultType="java.util.List" resultMap="result">
+		select * from m_module 
+		<include refid="Query_Where_Clause" />
+    </select>
+    <select id="queryAllModule" resultType="java.util.List" resultMap="result">
+		select * from m_module 
+    </select>
+	<select id="countModule" resultType="int" parameterType="java.util.Map">
+		select count(*) from m_module 
+		<include refid="Query_Where_Clause" />
+    </select>
+    
+	<sql id="Query_Where_Clause">
+		<where>
+			<if test="true">
+				1 = 1
+			</if>
+			<if test="name != null">
+				and name like '%${name}%'
+			</if>
+			order by createDate
+		</where>
+		
+	</sql>
+    
+</mapper>

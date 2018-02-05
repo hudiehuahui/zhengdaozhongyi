@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.homepage3-menu li {
+	float: left;
+	margin: 0 50px 0 0;
+	font-size: 14px;
+	position: relative;
+	text-align: center;
+	z-index: 99;
+}
+
+img.close-adv {
+	float: right;
+	margin: 6px -10px 0 0;
+	cursor: pointer;
+}
+
+.modal-wrapper p {
+	font-size: 22px;
+	color: #1d873f;
+	margin-bottom: 62px;
+}
+
+ 
