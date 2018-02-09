@@ -46,6 +46,7 @@
 						</form>
 				</div>
 		</div>
+		<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="<c:url value='static/hm/canvas-nest.js'/>"></script>
 <script type="text/javascript">
 	<c:if test='${not empty sessionScope.flag}'>
 	<c:if test="${flag eq 'usererror'}">
