@@ -244,6 +244,13 @@ $(function(){
                          </ul>
                      </div>
                     </li>
+                    <li><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-check-square-o"></i>穴位图管理</a>
+                     <div class="items hide" data-noinit="true">
+                         <ul class="menu-items" data-tit="穴位图" data-faicon="list">
+                             <li><a href="<c:url value="/back/acupointMap/allAcupointImage.do"/>" data-options="{id:'acupointMap', faicon:'th-large', fresh:true}">穴位图查看</a></li>
+                         </ul>
+                     </div>
+                    </li>
                 </ul>
             </div>
             <button type="button" class="btn-default bjui-hnav-more-right" title="导航菜单右移"><i class="fa fa-angle-double-right"></i></button>
