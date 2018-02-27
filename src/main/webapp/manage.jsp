@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>用户后台管理</title>
+<title>子午流注诊疗系统</title>
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
