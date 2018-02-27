@@ -33,6 +33,8 @@
 <!-- jquery -->
 <script src="<c:url value="/skin/back/BJUI/js/jquery-1.7.2.min.js"/>"></script>
 <script src="<c:url value="/skin/back/BJUI/js/jquery.cookie.js"/>"></script>
+
+<script src="<c:url value='/static/hm/jquery.elevateZoom-3.0.8.min.js'/>"></script>
 <%-- fullcalendar --%>
 <script src="<c:url value="/skin/back/fullcalendar/js/jquery-ui-1.10.2.custom.min.js"/>"></script>
 <script src="<c:url value="/static/js/fullcalendar.min.js"/>"></script>

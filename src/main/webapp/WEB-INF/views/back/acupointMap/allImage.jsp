@@ -2,7 +2,7 @@
 <%@ include file="/common/include/back_authority.jsp"%>
 <div class="bjui-pageContent">
 	<div>
-		<a href="<c:url value="/back/acupointMap/detailImage.do?path=/common/acupointMap/2-10.jpg"/>" class="btn btn-orange" type="button" data-icon="fa-cog" data-toggle="dialog" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">穴位图</a>
+		<a href="<c:url value="/back/acupointMap/detailImage.do?path=/common/acupointMap/2-10.jpg"/>" class="btn btn-orange" type="button" data-icon="fa-cog" data-toggle="navtab" data-id="mynavtab">穴位图</a>
 	</div>
 </div>
 <div class="bjui-pageFooter">
