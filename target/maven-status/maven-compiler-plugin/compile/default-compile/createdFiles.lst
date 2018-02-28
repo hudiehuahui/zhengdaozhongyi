@@ -80,6 +80,7 @@ com/zdzy/timephd/util/JsonUtils.class
 com/zdzy/timephd/tools/model/ChinaCalendar.class
 com/zdzy/timephd/statuscode/AccountStatusEnum.class
 com/zdzy/timephd/system/dao/OperationLogDao.class
+com/zdzy/timephd/acupointmap/AcupointMapController.class
 com/zdzy/timephd/member/model/LoginLog.class
 com/zdzy/framework/dao/BaseDao_Ibatis.class
 com/zdzy/timephd/system/dao/RolePermissionDao.class

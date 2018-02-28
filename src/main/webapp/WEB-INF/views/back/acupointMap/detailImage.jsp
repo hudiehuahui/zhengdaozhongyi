@@ -1,249 +1,111 @@
 <%@ page contentType="text/html;charset=utf-8" language="java"%>
 <%@ include file="/common/include/back_authority.jsp"%>
-<%-- <style>
-       * {
-           margin: 0;
-           padding: 0;
-       }
-       /*放大镜的大盒子*/
-       .box {
-           width: 350px;
-           height: 350px;
-           margin: 100px;
-           border: 1px solid #ccc;
-           position: relative;
-       }
-       /*大图片外面的盒子*/
-       .big {
-           width: 400px;
-           height: 400px;
-           position: absolute;
-           top: 0;
-           left: 360px;
-           border: 1px solid #ccc;
-           overflow: hidden;
-           display: none;
-       }
-       /*遮挡层*/
-       .mask {
-           width: 175px;
-           height: 175px;
-           background: rgba(255, 255, 0, 0.4);
-           position: absolute;
-           top: 0px;
-           left: 0px;
-           cursor: move;
-           display: none;
-       }
-       /*小图片外面的大盒子*/
-       .small {
-           position: relative;
-       }
-   </style>
-<div class="bjui-pageContent">
-	<!--放大镜的整体-->
-	 <div class="box" id="box">
-	     <!--小图的模块-->
-	     <div class="small">
-	         <!--小图-->
-	         <img alt="穴位图" src="<c:url value='${path}'/>">
-	         <!--遮挡层-->
-	         <div class="mask"></div>
-	     </div>
-	
-	     <!--大图的模块-->
-	     <div class="big">
-	          <!--大图-->
-	         <img alt="穴位图" src="<c:url value='${path}'/>">
-	     </div>
-	 </div>
-</div>
-<div class="bjui-pageFooter">
-    <ul>
-        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
-    </ul>
-</div>
-<script type="text/javascript">
-//获取元素
-    var box = document.getElementById("box");
-    //获取显示小图的div
-    var small = box.children[0];
-    //获取小图中的遮挡的div
-    var mask = small.children[1];
-    //获取显示大图的div
-    var big = box.children[1];
-    //获取大div中的大图
-    var imgObj = big.children[0];
-
-//显示遮挡层和显示大图的的层
-//鼠标进入事件
-box.onmouseover = function () {
-    mask.style.display = "block";
-    big.style.display = "block";
-};
-//鼠标离开事件
-box.onmouseout = function () {
-    mask.style.display = "none";
-    big.style.display = "none";
-};
-
-//为小层注册鼠标移动的事件
-small.onmousemove = function (e) {
-    var left = e.clientX - mask.offsetWidth / 2;//横坐标
-    var top = e.clientY - mask.offsetHeight / 2;//纵坐标
-//设置遮挡层的left和top
-    var x = left - 100;//margin
-    var y = top - 100;//margin
-
-    x=x<0?0:x;//如果横坐标小于0就设置为0
-    y=y<0?0:y;//如果纵坐标小于0就设置为0
-    x=x>small.offsetWidth-mask.offsetWidth?small.offsetWidth-mask.offsetWidth:x;
-    y=y>small.offsetHeight-mask.offsetHeight?small.offsetHeight-mask.offsetHeight:y;
-    
-//设置遮挡层的定位值
-    mask.style.left = x + "px";
-    mask.style.top = y + "px";
-
-//设置大图的移动距离
-    //大图的最大的移动距离
-    var imgMaxMove=imgObj.offsetWidth-big.offsetWidth;
-    //遮挡层的最大的移动距离
-    var maskMaxMove=small.offsetWidth-mask.offsetWidth;
-    //大图的横向移动的距离
-    var imgMoveLeft=x*imgMaxMove/maskMaxMove;
-    //大图的纵向移动的距离
-    var imgMoveTop=y*imgMaxMove/maskMaxMove;
-
-    //设置大图的left和top---移动的是margin-left和margin-top
-
-    imgObj.style.marginLeft=-imgMoveLeft+"px";
-    imgObj.style.marginTop=-imgMoveTop+"px";
-};
-</script> --%>
-
-<%-- <head>
+<head>
 <style type="text/css">
-  * {
-  margin: 0;
-  padding: 0;
-  }
-  img{
-  vertical-align: top;
-  }
-  .fdj {
-  width: 350px;
-  height: 350px;
-  position: relative;
-  margin: 80px 80px;
-  border: 1px solid gainsboro;
-  }
-  .small {
-  position: relative;
-  }
-  .small img {
-  width: 350px;
-  }
-  .mask {
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 0, 0.4);
-  position: absolute;
-  left: 0;
-  top: 0;
-  cursor: move;
-  display: none;
-  }
-  .big {
-  position: absolute;
-  top: 0;
-  left: 360px;
-  width: 500px;
-  height: 500px;
-  border: 1px solid gainsboro;
-  overflow: hidden;
-  display: none;
-  }
-  .big img{
-  position: absolute;
-  left: 0;
-  top: 0;
-  }
- </style>
- </head>
- <body>
- <div class="fdj">
-  <div class="small">
-  <img alt="穴位图" src="<c:url value='${path}'/>">
-  <div class="mask"></div>
-  </div>
-  <div class="big">
-  <img alt="穴位图" src="<c:url value='${path}'/>">
-  </div>
- </div>
- </body>
- <script type="text/javascript">
- var fdj = document.querySelector('.fdj') // 获得最大的盒子
- var small = document.querySelector('.small'); //获取小图片盒子
- var big = document.querySelector('.big'); //获取大图片盒子
- var bigs = big.children[0] //大图片 
- var smalls = small.children[0] //小图片
- var mask = small.children[1]; //遮罩
- 
- //鼠标移入小图片盒子
- small.onmouseover = function() {
-  //鼠标移入图片盒子将遮罩与大图片显示
-  mask.style.display = 'block';
-  big.style.display = ' block';
- };
- 
- //鼠标移出小图片盒子
- small.onmouseout = function() {
-  //鼠标移出小图片盒子将遮罩与大图片隐藏
-  mask.style.display = 'none';
-  big.style.display = 'none';
- };
- 
- var x=0;
- var y=0;
- //鼠标在小图片上移动时
- small.onmousemove = function(ev) {
-  var ev = event || window.event;
-//  var target = ev.srcElement||ev.target;
-//  alert(target.value);
- //让鼠标在遮罩正中
-  //鼠标X坐标与Y坐标
-  x = ev.clientX -this.offsetParent.offsetLeft- mask.offsetWidth / 2 ; 
-  y = ev.clientY -this.offsetParent.offsetTop- mask.offsetHeight / 2 ;
-  //将遮罩限制在小图片盒子中
- 
-  if (x<0) {
-  x=0;
-  }else if(x>small.offsetWidth-mask.offsetWidth){
-  x = small.offsetWidth-mask.offsetWidth;
-  }
- 
-  if(y<0){
-  y=0;
-  }else if(y>small.offsetHeight-mask.offsetHeight){
-  y= small.offsetHeight-mask.offsetHeight
-  }
-  mask.style.left = x + 'px';
-  mask.style.top = y + 'px';
- 
-  //大图与小图的比例
- 
-  /*var scalX = bigs.offsetWidth/small.offsetWidth;
-  var scalY = bigs.offsetHeight/small.offsetHeight;*/
- 
-  var scalX = x/(small.offsetWidth-mask.offsetWidth);
-  var scalY = y/(small.offsetHeight-mask.offsetHeight);
- 
-  bigs.style.left = -(x*scalX)+'px';
-  bigs.style.top = -(y*scalY)+'px';
- 
- };
- 
- </script> --%>
+* {
+	padding: 0;
+	margin: 0;
+}
+.magnify{
+	width: 350px;
+	margin: 80px auto;
+	position: relative;
+}
+
+/* 在这里我们来设置放大镜的样式 */
+.large {
+	width: 180px;
+	height: 180px;
+	position: absolute;
+	/* 圆角 */
+	border-radius: 100%;
+	/* 这里使用多重阴影、来实现玻璃的效果 */
+	box-shadow: 0 0 0 7px rgba(255,255,255,0.8),0 0 7px 7px rgba(0,0,0,0.3),inset 0 0 40px 2px rgba(0,0,0,0.3); 
+	/* 加载放大镜的图片 */
+	background: url(<c:url value='${path}'/>) no-repeat;
+	/* 放大镜默认隐藏 */
+	display: none;
+}
+
+/* 解决放大镜在放大的过程中边缘重叠的BUG */
+.small {
+	display: block;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	// 定义图像的实际尺寸、
+	var native_width = 0;
+	var native_height = 0;
+	// 首先、我们应该获得图像的实际尺寸、（本地的图片）
+	$('.small').load(function(){
+		// 这里我们需要重新创建一个和之前相同的图像对象、
+		// 因为我们不能直接获得图像尺寸的宽高、
+		// 因为我们在HTML里已经指定了图片宽度为200px、
+		var img_obj = new Image();
+		img_obj.src = $(this).attr('src');
+		//  在这里这段代码写在这里是非常有必要的、
+		//  如果在图像加载之前就访问的话、return的宽高值为0、
+		native_width = img_obj.width;
+		native_height = img_obj.height;
+		// 现在、我来开始写鼠标移动的函数、mousemove()
+		$('.magnify').mousemove(function(e){
+			// 获得鼠标X轴和Y轴的坐标
+			//  先获得magnify相对与document的定位position
+			var magnify_offset = $(this).offset();
+			// 这里我们用鼠标相对与文档的位置减去鼠标相对于magnify这个人容器的位置 来得到鼠标的位置
+			var mouse_x = e.pageX - magnify_offset.left;
+			var mouse_y = e.pageY - magnify_offset.top;
+			// 现在、我们来调整一下放大镜的隐藏与显示、
+			if( mouse_x > 0 && mouse_y > 0 && mouse_x < $(this).width() && mouse_y < $(this).height() ){
+				$('.large').fadeIn(100);
+			}else{
+				$('.large').fadeOut(100);
+			}
+			if($('.large').is(':visible')){
+				// 放大镜图片背景的定位是根据鼠标在小图片上改变的位置来改变的、
+				// 因此、我们应该先得到放大的比例、来定位这个放大镜里背景图片的定位、
+				/*
+				var ratio_x = mouse_x/$('.small').width();//得到的是缩放的比例		
+				var large_x = ratio_x*native_width;
+				// 我们需要让它在放大镜的中间位置显示、
+				large_x = large_x - $('.large').width()/2;
+				// 因为背景图片的定位、这里需要转化为负值、
+				large_x = large_x*-1;
+				// 现在我们来整合一下所有的计算步骤、
+				*/
+				var rx = Math.round(mouse_x/$('.small').width()*native_width - $('.large').width()/2)*-1;
+				var ry = Math.round(mouse_y/$('.small').height()*native_height - $('.large').height()/2)*-1;
+				var bgp = rx + 'px ' + ry + 'px';
+				// 现在我们应该来写放大镜跟随鼠标的效果、
+				// 放大镜移动的位置 相对于文档的位置 减去 放大镜相对于放大这个层的offset的位置、
+				// 再减去放大镜宽高的一半、保证放大镜的中心跟随鼠标
+				var gx = mouse_x - $('.large').width()/2;
+				var gy = mouse_y - $('.large').height()/2;
+				$('.large').css({
+					'left':gx,
+					'top':gy,
+					'backgroundPosition':bgp
+				})
+			}
+		})
+	})
+	// 最后、我们来把这个mousemove()这个函数来放在这个load这个函数里
+})
+</script>
+</head>
+<body>
+	<div class='magnify'>
+		<div class='large'></div>
+		<img src="<c:url value='${path}'/>" width="350px" class='small'>
+	</div>
+	<center>
+</center>
+</body>
+
+
+
+<%-- 
 <div class="bjui-pageContent">
 	<div class="container" >
          <div class="demo" style="text-align: center;">
@@ -259,5 +121,5 @@ $('#zoom_01').elevateZoom({
     lensSize: 350 //透镜尺寸：长和宽：200px 
 });//默认效果
 </script>
- 
+  --%>
  

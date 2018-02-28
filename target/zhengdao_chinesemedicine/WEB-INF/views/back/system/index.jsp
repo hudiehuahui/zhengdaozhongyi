@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>用户后台管理系统</title>
+<title>子午流注诊疗系统</title>
 <meta name="Keywords" content=""/>
 <meta name="Description" content=""/> 
 <!-- bootstrap - css -->
@@ -33,6 +33,8 @@
 <!-- jquery -->
 <script src="<c:url value="/skin/back/BJUI/js/jquery-1.7.2.min.js"/>"></script>
 <script src="<c:url value="/skin/back/BJUI/js/jquery.cookie.js"/>"></script>
+
+<script src="<c:url value='/static/hm/jquery.elevateZoom-3.0.8.min.js'/>"></script>
 <%-- fullcalendar --%>
 <script src="<c:url value="/skin/back/fullcalendar/js/jquery-ui-1.10.2.custom.min.js"/>"></script>
 <script src="<c:url value="/static/js/fullcalendar.min.js"/>"></script>
@@ -241,6 +243,13 @@ $(function(){
                      <div class="items hide" data-noinit="true">
                          <ul class="menu-items" data-tit="模块管理" data-faicon="list">
                              <li><a href="<c:url value="/back/module/moduleList.do"/>" data-options="{id:'warehouse-index', faicon:'th-large', fresh:true}">模块管理</a></li>
+                         </ul>
+                     </div>
+                    </li>
+                    <li><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-check-square-o"></i>穴位图管理</a>
+                     <div class="items hide" data-noinit="true">
+                         <ul class="menu-items" data-tit="穴位图" data-faicon="list">
+                             <li><a href="<c:url value="/back/acupointMap/allAcupointImage.do"/>" data-options="{id:'acupointMap', faicon:'th-large', fresh:true}">穴位图查看</a></li>
                          </ul>
                      </div>
                     </li>

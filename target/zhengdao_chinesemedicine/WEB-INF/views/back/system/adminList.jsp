@@ -44,7 +44,7 @@ function toConfirm(id){
 			<label>EMail:</label><input name="email" type="text" value="${email}"  class="form-control" size="10"/>&nbsp;
             <button type="submit" class="btn-default" data-icon="search">查询</button>&nbsp;
             <a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
-            <a href="<c:url value="/back/system/saveAdminForm.do?flag=2"/>" class="btn btn-green" data-on-close="beforeClose" data-on-load="DonLoad" data-toggle="dialog" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">添加</a>
+            <a href="<c:url value="/back/system/saveAdminForm.do?flag=2"/>" class="btn btn-green" data-on-close="beforeClose" data-on-load="DonLoad" data-toggle="dialog" data-icon="plus" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">添加</a>
         </div>
     </form>
 </div>
@@ -77,9 +77,9 @@ function toConfirm(id){
                 <td>${info.phone}</td>
                 <td>${info.email}</td>
                 <td>
-                	<a href="<c:url value="/back/system/saveAdminForm.do?id=${info.ID}&flag=1"/>" class="btn btn-default" data-toggle="dialog" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">信息查看</a>
-                	<a href="<c:url value="/back/system/saveAdminForm.do?id=${info.ID}&flag=2"/>" class="btn btn-blue" class="btn btn-blue" data-on-close="beforeClose" data-icon="search" data-toggle="dialog" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">编辑</a>
-				    <button id="bt1" data-on-close="beforeClose" data-on-load="DonLoad" type="button" class="btn-orange" onclick="delAdminById('${info.ID}')">删除</button>
+                	<a href="<c:url value="/back/system/saveAdminForm.do?id=${info.ID}&flag=1"/>" class="btn btn-default" data-toggle="dialog" data-icon="eye" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">信息查看</a>
+                	<a href="<c:url value="/back/system/saveAdminForm.do?id=${info.ID}&flag=2"/>" class="btn btn-blue" class="btn btn-blue" data-on-close="beforeClose" data-icon="edit" data-toggle="dialog" data-width="800" data-height="400" data-id="dialog-mask" data-mask="true">编辑</a>
+				    <button id="bt1" data-on-close="beforeClose" data-on-load="DonLoad" type="button" class="btn btn-red" data-icon="trash" onclick="delAdminById('${info.ID}')">删除</button>
                 </td>
             </tr>
         </c:forEach>
