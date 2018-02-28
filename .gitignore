@@ -5,5 +5,7 @@
 *.settings
 *.project
 *.classpath
-target/
+target/*
 *.class
+*.target/*
+*.target
