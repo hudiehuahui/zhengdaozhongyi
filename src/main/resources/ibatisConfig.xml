@@ -13,7 +13,7 @@
 		<typeAlias alias="Admin" type="com.zdzy.timephd.system.model.Admin" />
 		<typeAlias alias="Module" type="com.zdzy.timephd.system.model.Module" />
 		<typeAlias alias="OperationLog" type="com.zdzy.timephd.system.model.OperationLog" />
-
+		<typeAlias alias="AcupointMap" type="com.zdzy.timephd.acupointmap.model.AcupointMap" />
 	</typeAliases>
 	<typeHandlers>
 		<typeHandler handler="com.zdzy.framework.page.EmptyToNullTypeHandler" javaType="String" jdbcType="VARCHAR" />
@@ -30,6 +30,7 @@
 		<mapper resource="com/zdzy/timephd/system/model/Admin.xml" />
 		<mapper resource="com/zdzy/timephd/system/model/Module.xml" />
 		<mapper resource="com/zdzy/timephd/system/model/OperationLog.xml" />
+		<mapper resource="com/zdzy/timephd/acupointmap/model/AcupointMap.xml" />
 
 
 	</mappers>

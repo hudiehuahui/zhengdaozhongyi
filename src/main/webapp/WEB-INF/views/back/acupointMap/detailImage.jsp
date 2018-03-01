@@ -14,8 +14,8 @@
 
 /* 在这里我们来设置放大镜的样式 */
 .large {
-	width: 180px;
-	height: 180px;
+	width: 350px;
+	height: 350px;
 	position: absolute;
 	/* 圆角 */
 	border-radius: 100%;

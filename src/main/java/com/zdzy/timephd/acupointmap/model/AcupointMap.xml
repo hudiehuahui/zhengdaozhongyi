@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AcupointMap">
+	<resultMap id="result" type="AcupointMap">
+		<result property="id" column="id" />
+		<result property="acupointMapName" column="acupointMapName" />
+		<result property="path" column="path" />
+		<result property="part" column="part" />
+	</resultMap>
+	<!-- 基本字段 -->
+	<sql id="Base_Column_List">
+		id,acupointMapName,path,part
+	</sql>
+
+	<insert id="insertAcupointMap" keyProperty="id" parameterType="com.zdzy.timephd.acupointmap.model.AcupointMap">
+		insert into sys_acupointmap
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="acupointMapName != null">
+				acupointMapName,
+			</if>
+			<if test="path != null">
+				path,
+			</if>
+			<if test="part != null">
+				part
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="acupointMapName != null">
+				#{acupointMapName},
+			</if>
+			<if test="path != null">
+				#{path},
+			</if>
+			<if test="part != null">
+				#{part}
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateAcupointMap" parameterType="com.zdzy.timephd.acupointmap.model.AcupointMap">
+		update sys_acupointmap
+		<set>
+			<if test="acupointMapName != null">
+				acupointMapName = #{acupointMapName},
+			</if>
+			<if test="path != null">
+				path = #{path},
+			</if>
+			<if test="part != null">
+				part = #{part},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	<delete id="deleteAcupointMap">
+		delete from sys_acupointmap where id=#{id}
+	</delete>
+	<select id="selectAcupointMap" resultMap="result">
+		select
+		<include refid="Base_Column_List" />
+		from sys_acupointmap where id=#{id}
+	</select>
+
+	<select id="countAcupointMap" resultType="int" parameterType="java.util.Map">
+		select count(1) from sys_acupointmap
+		<include refid="Query_Where_Clause" />
+	</select>
+
+	<!-- 依据map来查询对象 -->
+	<select id="queryAcupointMap" resultType="java.util.List" resultMap="result">
+		select
+		<include refid="Base_Column_List" />
+		from sys_acupointmap
+		<include refid="Query_Where_Clause"></include>
+	</select>
+
+
+
+	<sql id="Query_Where_Clause">
+		<where>
+			<if test="true">
+				1 = 1
+			</if>
+			<if test="acupointMapName != null ">
+				and acupointMapName = ${acupointMapName}
+			</if>
+			<if test="path != null ">
+				and path = ${path}
+			</if>
+			<if test="part != null ">
+				and part = ${part}
+			</if>
+		</where>
+	</sql>
+</mapper>
